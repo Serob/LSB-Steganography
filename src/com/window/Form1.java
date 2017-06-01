@@ -115,11 +115,7 @@ public class Form1 extends JPanel {
 			if (returnVal == JFileChooser.APPROVE_OPTION) {
 				container = fcContainer.getSelectedFile(); 
                 containerLable.setText(container.getName());
-
-                //This is where a real application would open the file. 
-	        } else {
-	        	//containerLable.setText("");
-	        }
+	        } 
 		}
 		
 	}
@@ -129,12 +125,9 @@ public class Form1 extends JPanel {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			int returnVal = fcContainer.showOpenDialog(Form1.this);
-		if (returnVal == JFileChooser.APPROVE_OPTION) {
+			if (returnVal == JFileChooser.APPROVE_OPTION) {
 				fullContainer = fcContainer.getSelectedFile();
                 fullContainerLable.setText(fullContainer.getName());
-                //This is where a real application would open the file. 
-	        } else {
-	        	//fullContainerLable.setText("");
 	        }
 		}
 		
@@ -148,13 +141,8 @@ public class Form1 extends JPanel {
 			if (returnVal == JFileChooser.APPROVE_OPTION) {
 				secret = fcSecret.getSelectedFile();
                 secretLable.setText(secret.getName());
-                //This is where a real application would open the file. 
-	        } else{
-	        	//secretLable.setText("");
-	        }
-			
+	        } 
 		}
-		
 	}
 	
 	private class HideListener implements ActionListener{
