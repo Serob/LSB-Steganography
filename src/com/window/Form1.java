@@ -107,30 +107,28 @@ public class Form1 extends JPanel {
 		
 	}
 	
+	private File containerAction(Label contLabel){
+        File toBeReturned = null;
+        int returnVal = fcContainer.showOpenDialog(this);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            toBeReturned = fcContainer.getSelectedFile();
+            contLabel.setText(toBeReturned.getName());
+        }
+        return toBeReturned;
+    }
+	
 	private class ContainerOpenListener implements ActionListener{
-
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			int returnVal = fcContainer.showOpenDialog(Form1.this);
-			if (returnVal == JFileChooser.APPROVE_OPTION) {
-				container = fcContainer.getSelectedFile(); 
-                containerLable.setText(container.getName());
-	        } 
+			container = containerAction(containerLable);
 		}
-		
 	}
 	
 	private class FullContainerOpenListener implements ActionListener{
-
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			int returnVal = fcContainer.showOpenDialog(Form1.this);
-			if (returnVal == JFileChooser.APPROVE_OPTION) {
-				fullContainer = fcContainer.getSelectedFile();
-                fullContainerLable.setText(fullContainer.getName());
-	        }
+			fullContainer = containerAction(fullContainerLable);
 		}
-		
 	}
 	
 	private class SecretOpenListener implements ActionListener{
