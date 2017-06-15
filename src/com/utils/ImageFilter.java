@@ -13,19 +13,14 @@ public class ImageFilter extends FileFilter{
 
         String extension = ImageUtils.getExtension(f);
         if (extension != null) {
-        	 if (extension.equals(ImageUtils.BMP)){
-        		 return true;
-        	 } else{
-        		 return false;
-        	 }
+			return extension.equalsIgnoreCase(ImageUtils.BMP);
         }
 		return false;
 	}
 
 	@Override
 	public String getDescription() {
-		
-		return "*.bmp";
+		return "*." + ImageUtils.BMP;
 	}
 
 }
